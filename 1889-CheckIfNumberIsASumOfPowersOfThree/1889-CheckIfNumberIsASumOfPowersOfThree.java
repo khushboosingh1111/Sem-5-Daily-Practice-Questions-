@@ -1,0 +1,13 @@
+// Last updated: 8/6/2025, 10:10:46 AM
+class Solution {
+    public boolean checkPowersOfThree(int n) {
+       while(n>0){
+        int rem = n%3;
+        if(rem==2){
+            return false;
+        }
+        n=n/3;
+       }
+       return true;
+    }
+}
