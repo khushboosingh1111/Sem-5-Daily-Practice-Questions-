@@ -1,0 +1,17 @@
+// Last updated: 8/6/2025, 10:13:02 AM
+class Solution 
+{
+    public int reachNumber(int target) 
+    {
+        target = Math.abs(target);
+        int sum = 0, steps = 0;
+
+        while (sum < target || (sum - target) % 2 != 0) 
+        {
+            steps++;
+            sum += steps;
+        }
+
+        return steps;
+    }
+}
