@@ -1,4 +1,4 @@
-// Last updated: 8/7/2025, 11:05:22 AM
+// Last updated: 8/7/2025, 11:30:05 AM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -32,19 +32,32 @@ class Solution {
             else if(root.right==null){
                 return root.left;
             }
+            // else{ //by right ka minimum
+            //     int min=min(root.right);
+            //     root.right=deleteNode(root.right,min);
+            //     root.val=min;
+            // }
+            //by left max
             else{
-                int min=min(root.right);
-                root.right=deleteNode(root.right,min);
-                root.val=min;
+                int max=max(root.left);
+                root.left=deleteNode(root.left,max);
+                root.val=max;
             }
         }
         return root;
     }
-    public int min(TreeNode root){
+    // public int min(TreeNode root){
+    //     if(root==null){
+    //         return Integer.MAX_VALUE;
+    //     }
+    //     int l=min(root.left);
+    //     return Math.min(l,root.val);
+    // }
+    public int max(TreeNode root){
         if(root==null){
-            return Integer.MAX_VALUE;
+            return Integer.MIN_VALUE;
         }
-        int l=min(root.left);
-        return Math.min(l,root.val);
+        int r=max(root.right);
+        return Math.max(r,root.val);
     }
 }
