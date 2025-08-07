@@ -1,4 +1,4 @@
-// Last updated: 8/7/2025, 11:49:15 AM
+// Last updated: 8/7/2025, 12:33:43 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,8 +15,8 @@
  * }
  */
 class Solution {
-    public boolean isValidBST(TreeNode root) {
-        return isValid(root).isvalid;
+    public int maxSumBST(TreeNode root) {
+        return isValid(root).ans;
     }
     public bst isValid(TreeNode root){
         if(root==null){
@@ -27,12 +27,21 @@ class Solution {
         bst sbp=new bst();
         sbp.max=Math.max(lbp.max,Math.max(rbp.max,root.val));
         sbp.min=Math.min(lbp.min,Math.min(rbp.min,root.val));
-        sbp.isvalid=lbp.isvalid && rbp.isvalid && lbp.max<root.val && rbp.min>root.val;
+        sbp.sum=lbp.sum+rbp.sum+root.val;
+        sbp.isbst=lbp.isbst && rbp.isbst && lbp.max<root.val && rbp.min>root.val;
+        if(sbp.isbst){
+            sbp.ans=Math.max(lbp.ans,Math.max(rbp.ans,sbp.sum));
+        }
+        else{
+            sbp.ans=Math.max(lbp.ans,rbp.ans);
+        }
         return sbp;
     }
     public class bst{
-        boolean isvalid=true;
+        boolean isbst=true;
         long max=Long.MIN_VALUE;
         long min=Long.MAX_VALUE;
+        int sum=0;
+        int ans=0; //only maximum bst part ka sum
     } 
 }
