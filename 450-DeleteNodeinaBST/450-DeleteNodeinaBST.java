@@ -1,4 +1,4 @@
-// Last updated: 8/7/2025, 11:30:05 AM
+// Last updated: 8/7/2025, 11:49:15 AM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,49 +15,24 @@
  * }
  */
 class Solution {
-    public TreeNode deleteNode(TreeNode root, int key) {
-        if(root==null){
-            return null;
-        }
-        if(root.val<key){
-            root.right=deleteNode(root.right,key);
-        }
-        else if(root.val>key){
-            root.left=deleteNode(root.left,key);
-        }
-        else{
-            if(root.left==null){
-                return root.right;
-            }
-            else if(root.right==null){
-                return root.left;
-            }
-            // else{ //by right ka minimum
-            //     int min=min(root.right);
-            //     root.right=deleteNode(root.right,min);
-            //     root.val=min;
-            // }
-            //by left max
-            else{
-                int max=max(root.left);
-                root.left=deleteNode(root.left,max);
-                root.val=max;
-            }
-        }
-        return root;
+    public boolean isValidBST(TreeNode root) {
+        return isValid(root).isvalid;
     }
-    // public int min(TreeNode root){
-    //     if(root==null){
-    //         return Integer.MAX_VALUE;
-    //     }
-    //     int l=min(root.left);
-    //     return Math.min(l,root.val);
-    // }
-    public int max(TreeNode root){
+    public bst isValid(TreeNode root){
         if(root==null){
-            return Integer.MIN_VALUE;
+            return new bst();
         }
-        int r=max(root.right);
-        return Math.max(r,root.val);
+        bst lbp=isValid(root.left);
+        bst rbp=isValid(root.right);
+        bst sbp=new bst();
+        sbp.max=Math.max(lbp.max,Math.max(rbp.max,root.val));
+        sbp.min=Math.min(lbp.min,Math.min(rbp.min,root.val));
+        sbp.isvalid=lbp.isvalid && rbp.isvalid && lbp.max<root.val && rbp.min>root.val;
+        return sbp;
     }
+    public class bst{
+        boolean isvalid=true;
+        long max=Long.MIN_VALUE;
+        long min=Long.MAX_VALUE;
+    } 
 }
