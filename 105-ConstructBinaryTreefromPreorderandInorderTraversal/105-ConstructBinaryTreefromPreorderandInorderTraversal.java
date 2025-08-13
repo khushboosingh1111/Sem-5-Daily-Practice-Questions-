@@ -1,4 +1,4 @@
-// Last updated: 8/13/2025, 10:49:13 AM
+// Last updated: 8/13/2025, 11:32:38 AM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,27 +15,32 @@
  * }
  */
 class Solution {
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return createTree(inorder,preorder,0,inorder.length-1,0,preorder.length-1);
-    }
-    public TreeNode createTree(int[] in,int[] pre,int ilo,int ihi,int plo,int phi){
-        if(ilo>ihi ||plo>phi){
-            return null;
+    int camera=0;
+    public int minCameraCover(TreeNode root) {
+        int c=minCamera(root);
+        if(c==-1){
+            camera++;
         }
-        TreeNode node=new TreeNode(pre[plo]);
-        int idx=search(in,ilo,ihi,pre[plo]);
-        int c=idx-ilo;
-        node.left=createTree(in,pre,ilo,idx-1,plo+1,plo+c);
-        node.right=createTree(in,pre,idx+1,ihi,plo+c+1,phi);
-        return node;
+        return camera;
+        
+    }   
+    public int minCamera(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        int left=minCamera(root.left);
+        int right=minCamera(root.right);
+        if(left==-1 || right==-1){ // is node Camera ki need hai
+            camera++;
+            return 1; //Camera setup kra is node pe
+        }
+        if(left==1 || right==1){ // inme se koi ek ke pass ya dono k pass Camera hai or ek pass camera h and dusra wala covered hai
+            return 0;  //iska mtlb mai covered hu
+        }
+        else{
+            return -1; //need a camera
+        }
 
-    }
-    public int search(int[] in,int ilo,int ihi,int item){
-        for(int i=ilo;i<=ihi;i++){
-            if(in[i]==item){
-                return i;
-            }
-        }
-        return 0;
-    }
+        
+    }                                
 }
