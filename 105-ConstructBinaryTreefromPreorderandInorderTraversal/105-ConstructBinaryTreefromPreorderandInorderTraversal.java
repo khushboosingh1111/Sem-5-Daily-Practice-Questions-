@@ -1,4 +1,4 @@
-// Last updated: 8/13/2025, 12:13:22 PM
+// Last updated: 8/13/2025, 12:44:18 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,19 +15,23 @@
  * }
  */
 class Solution {
-    int ans=0;
-    public int distributeCoins(TreeNode root) {
-        minmove(root);
-        return ans;
+    public void flatten(TreeNode root) {
+        MakeLL(root);
     }
-    public int minmove(TreeNode root){
+    public TreeNode MakeLL(TreeNode root){
         if(root==null){
-            return 0;
+            return null;
         }
-        int left=minmove(root.left);
-        int right=minmove(root.right);
-        ans=ans+Math.abs(left)+Math.abs(right);
-        return root.val +left+right-1;
+        if(root.left==null && root.right==null){
+            return root;
+        }
+        TreeNode left_tail=MakeLL(root.left);
+        TreeNode right_tail=MakeLL(root.right);
+        if(root.left!=null){
+            left_tail.right=root.right;
+            root.right=root.left;
+            root.left=null;
+        }
+        return right_tail!=null ? right_tail : left_tail;
     }
-
 }
