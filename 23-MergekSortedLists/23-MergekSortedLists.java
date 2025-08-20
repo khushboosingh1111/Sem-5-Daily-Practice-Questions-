@@ -1,16 +1,33 @@
-// Last updated: 8/20/2025, 12:20:26 PM
+// Last updated: 8/20/2025, 12:20:42 PM
+/**
+* Definition for singly-linked list.
+*
+*class ListNode {
+*    int val;
+*    ListNode next;
+*    ListNode() {}
+*    ListNode(int val) { this.val = val; }
+*    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ }*/
+
 class Solution {
-    public int findKthLargest(int[] arr, int k) {
-        PriorityQueue<Integer> pq=new PriorityQueue<>();
-		for(int i=0;i<k;i++) {
-			pq.add(arr[i]);
-		}
-		for(int i=k;i<arr.length;i++) {
-			if(arr[i]>pq.peek()) {
-				pq.poll();
-				pq.add(arr[i]);
-			}
-		}
-		return pq.peek();
+    public ListNode mergeKLists(ListNode[] lists) {
+        int n = lists.length;
+        if (n == 0) return null;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (ListNode head : lists) {
+            while (head != null) {
+                pq.add(head.val);
+                head = head.next;
+            }
+        }
+        if (pq.isEmpty()) return null;
+        ListNode head = new ListNode(pq.poll());
+        ListNode temp = head;
+        while (!pq.isEmpty()) {
+            temp.next = new ListNode(pq.poll());
+            temp = temp.next;
+        }
+        return head;
     }
 }
