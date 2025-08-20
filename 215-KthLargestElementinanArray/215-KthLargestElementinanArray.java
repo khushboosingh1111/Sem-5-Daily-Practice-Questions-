@@ -1,8 +1,16 @@
-// Last updated: 8/20/2025, 12:04:43 PM
+// Last updated: 8/20/2025, 12:19:44 PM
 class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        return nums[n-k];
+    public int findKthLargest(int[] arr, int k) {
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+		for(int i=0;i<k;i++) {
+			pq.add(arr[i]);
+		}
+		for(int i=k;i<arr.length;i++) {
+			if(arr[i]>pq.peek()) {
+				pq.poll();
+				pq.add(arr[i]);
+			}
+		}
+		return pq.peek();
     }
 }
