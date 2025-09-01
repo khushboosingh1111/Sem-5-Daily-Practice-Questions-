@@ -1,4 +1,4 @@
-// Last updated: 8/31/2025, 4:14:55 AM
+// Last updated: 9/1/2025, 8:38:38 PM
 class Solution {
     public int getLeastFrequentDigit(int n) {
         HashMap<Integer,Integer> map=new HashMap<>();
