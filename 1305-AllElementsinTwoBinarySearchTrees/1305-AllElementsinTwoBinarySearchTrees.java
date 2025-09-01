@@ -1,4 +1,4 @@
-// Last updated: 9/1/2025, 11:08:14 PM
+// Last updated: 9/1/2025, 11:09:24 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -16,35 +16,25 @@
  */
 class Solution {
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
-        inorder(root1, list1);
-        inorder(root2, list2);
-        return merge(list1, list2);
-
-    }
-     private void inorder(TreeNode root, List<Integer> list) {
-        if (root == null) return;
-        inorder(root.left, list);
-        list.add(root.val);
-        inorder(root.right, list);
-    }
-    private List<Integer> merge(List<Integer> list1, List<Integer> list2) {
-        List<Integer> result = new ArrayList<>();
-        int i = 0, j = 0;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         
-        while (i < list1.size() && j < list2.size()) {
-            if (list1.get(i) < list2.get(j)) {
-                result.add(list1.get(i++));
-            } else {
-                result.add(list2.get(j++));
-            }
+        // Step 1: Fill PQ with elements of both trees
+        fillPQ(root1, pq);
+        fillPQ(root2, pq);
+        
+        // Step 2: Extract from PQ into result list
+        List<Integer> result = new ArrayList<>();
+        while (!pq.isEmpty()) {
+            result.add(pq.poll());
         }
         
-        // Add remaining elements
-        while (i < list1.size()) result.add(list1.get(i++));
-        while (j < list2.size()) result.add(list2.get(j++));
-        
         return result;
+    }
+    
+    private void fillPQ(TreeNode root, PriorityQueue<Integer> pq) {
+        if (root == null) return;
+        pq.offer(root.val);
+        fillPQ(root.left, pq);
+        fillPQ(root.right, pq);
     }
 }
