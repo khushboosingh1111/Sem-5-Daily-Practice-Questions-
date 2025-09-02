@@ -1,4 +1,4 @@
-// Last updated: 9/2/2025, 10:36:08 PM
+// Last updated: 9/2/2025, 10:40:24 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -16,30 +16,36 @@
  */
 class Solution {
     public TreeNode lcaDeepestLeaves(TreeNode root) {
-    return dfs(root).node;
+     return dfs(root).node;
     }
     
     private Pair dfs(TreeNode root) {
-        if (root == null) return new Pair(null, 0);
-        
+        if (root == null) {
+            Pair p = new Pair();
+            p.node = null;
+            p.depth = 0;
+            return p;
+        }
+
         Pair left = dfs(root.left);
         Pair right = dfs(root.right);
-        
+
+        Pair result = new Pair();
         if (left.depth > right.depth) {
-            return new Pair(left.node, left.depth + 1);
+            result.node = left.node;
+            result.depth = left.depth + 1;
         } else if (right.depth > left.depth) {
-            return new Pair(right.node, right.depth + 1);
+            result.node = right.node;
+            result.depth = right.depth + 1;
         } else {
-            return new Pair(root, left.depth + 1);
+            result.node = root;
+            result.depth = left.depth + 1; // or right.depth + 1 (same)
         }
+        return result;
     }
     
     private class Pair {
         TreeNode node;
         int depth;
-        Pair(TreeNode n, int d) {
-            node = n;
-            depth = d;
-        }
     }
 }
