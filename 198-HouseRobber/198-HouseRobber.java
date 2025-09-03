@@ -1,17 +1,18 @@
-// Last updated: 9/3/2025, 11:59:16 AM
+// Last updated: 9/3/2025, 12:24:03 PM
 class Solution {
-    public int minCostClimbingStairs(int[] cost) {
-        if(cost.length==0){
-            return 0;
+    public int lengthOfLIS(int[] nums) {
+        int max=0;
+        int[] dp=new int[nums.length];
+
+        for(int num:nums){
+            int index=Arrays.binarySearch(dp,0,max,num);
+            index=index<0 ? Math.abs(index)-1:index;
+            dp[index]=num;
+            if(index==max){
+                ++max;
+            }
         }
-        int min1=0;
-        int min2=cost[0];
-        for(int i=1;i<cost.length;i++){
-            int min=cost[i]+Math.min(min1,min2);
-            min1=min2;
-            min2=min;
-        }
-        return Math.min(min1,min2);
+        return max;
         
     }
 }
