@@ -1,14 +1,17 @@
-// Last updated: 9/3/2025, 10:53:53 AM
+// Last updated: 9/3/2025, 11:59:16 AM
 class Solution {
-    public int rob(int[] nums) {
-        int [] dp=new int[nums.length+1];
-        dp[0]=0;
-        dp[1]=nums[0];
-        for(int i=2;i<=nums.length;i++){
-            dp[i]=Math.max(nums[i-1]+dp[i-2],dp[i-1]);
-        
+    public int minCostClimbingStairs(int[] cost) {
+        if(cost.length==0){
+            return 0;
         }
-        return dp[dp.length-1];
+        int min1=0;
+        int min2=cost[0];
+        for(int i=1;i<cost.length;i++){
+            int min=cost[i]+Math.min(min1,min2);
+            min1=min2;
+            min2=min;
+        }
+        return Math.min(min1,min2);
         
     }
 }
