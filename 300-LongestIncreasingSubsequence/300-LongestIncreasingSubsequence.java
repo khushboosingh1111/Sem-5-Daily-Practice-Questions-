@@ -1,4 +1,4 @@
-// Last updated: 8/6/2025, 10:15:04 AM
+// Last updated: 9/3/2025, 11:04:19 PM
 class Solution {
     public int lengthOfLIS(int[] nums) {
         int max=0;
