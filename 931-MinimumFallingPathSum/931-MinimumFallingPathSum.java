@@ -1,8 +1,7 @@
-// Last updated: 9/10/2025, 12:37:02 PM
+// Last updated: 9/10/2025, 12:37:17 PM
 class Solution {
     public int minFallingPathSum(int[][] matrix) {
-      
-        // int[][] matrix = {{2, 1, 3}, {6, 5, 4}, {7, 8, 9}};
+    
         int ans = Integer.MAX_VALUE;
         int[][] dp=new int[matrix.length][matrix[0].length];
         for(int[] a:dp) {
