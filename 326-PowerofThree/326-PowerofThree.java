@@ -1,4 +1,4 @@
-// Last updated: 10/7/2025, 10:55:10 PM
+// Last updated: 10/8/2025, 11:45:37 PM
 class Solution {
     public boolean isPowerOfThree(int n) {
         int maxPowerOf3 = 1162261467; // 3^19 is the largest power of 3 in int range
