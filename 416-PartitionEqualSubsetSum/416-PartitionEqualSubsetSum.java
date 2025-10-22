@@ -1,4 +1,4 @@
-// Last updated: 10/21/2025, 11:02:37 AM
+// Last updated: 10/22/2025, 10:58:42 PM
 class Solution {
     public boolean canPartition(int[] nums) {
         int n=nums.length;
