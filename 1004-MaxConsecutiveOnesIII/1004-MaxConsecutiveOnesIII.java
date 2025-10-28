@@ -1,4 +1,4 @@
-// Last updated: 10/28/2025, 11:12:11 PM
+// Last updated: 10/28/2025, 11:12:19 PM
 class Solution {
     public int longestOnes(int[] s, int k) {
         int[] count = new int[2];
