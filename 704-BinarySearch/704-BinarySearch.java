@@ -1,4 +1,4 @@
-// Last updated: 10/29/2025, 12:51:06 PM
+// Last updated: 10/29/2025, 12:51:18 PM
 class Solution {
     public int search(int[] nums, int target) {
         return BS(nums,target,0,nums.length-1);
