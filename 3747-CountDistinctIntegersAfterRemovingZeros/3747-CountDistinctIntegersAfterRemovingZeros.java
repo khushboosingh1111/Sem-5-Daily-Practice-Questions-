@@ -1,25 +1,21 @@
-// Last updated: 11/17/2025, 7:56:54 PM
+// Last updated: 11/17/2025, 7:58:19 PM
 class Solution {
     public long countDistinct(long n) {
-        String s = Long.toString(n);
-        int m = s.length();
-
-        long[] pow = new long[m + 1];
-        pow[0] = 1;
-        for (int i = 1; i <= m; i++) pow[i] = pow[i - 1] * 9;
-
         long ans = 0;
-        for (int len = 1; len < m; len++) ans += pow[len];
-
-        int i = 0;
-        while (i < m) {
-            char c = s.charAt(i);
-            if (c == '0') break;
-            int digit = c - '0';
-            ans += (digit - 1) * pow[m - i - 1];
-            i++;
+        String s = Long.toString(n);
+        for (int i = 1; i < s.length(); i++) {
+            ans += Math.pow(9, i);
         }
-
-        return ans + (i == m ? 1 : 0);
+        int l = s.length();
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length()) {
+                ans++;
+                break;
+            }
+            long val = s.charAt(i) - '0';
+            if (val == 0) break;
+            ans += (val - 1) * Math.pow(9, l - i - 1);
+        }
+        return ans;
     }
 }
