@@ -1,4 +1,4 @@
-// Last updated: 11/17/2025, 6:33:58 PM
+// Last updated: 11/17/2025, 6:34:06 PM
 class Solution {
     public int minLengthAfterRemovals(String s) {
         int ca=0;
