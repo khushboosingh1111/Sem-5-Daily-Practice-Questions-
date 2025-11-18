@@ -1,4 +1,4 @@
-// Last updated: 11/18/2025, 10:35:48 PM
+// Last updated: 11/18/2025, 10:36:13 PM
 class Solution {
     public int minMoves(int[] nums) {
         int max=0;
