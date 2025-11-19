@@ -1,4 +1,4 @@
-// Last updated: 11/19/2025, 12:35:58 PM
+// Last updated: 11/19/2025, 12:36:06 PM
 class Solution {
     public int longestCycle1(int[] edges) {
         return longestCycle(edges);
