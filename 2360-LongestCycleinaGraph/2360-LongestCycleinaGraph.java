@@ -1,8 +1,5 @@
-// Last updated: 11/19/2025, 12:36:06 PM
+// Last updated: 11/19/2025, 12:39:07 PM
 class Solution {
-    public int longestCycle1(int[] edges) {
-        return longestCycle(edges);
-    }
     public int longestCycle(int[] edges) {
         int[] in=new int[edges.length];
         for(int i=0;i<edges.length;i++) {
