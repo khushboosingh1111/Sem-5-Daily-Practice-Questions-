@@ -1,4 +1,4 @@
-// Last updated: 11/21/2025, 2:56:09 PM
+// Last updated: 11/21/2025, 2:56:19 PM
 class Solution {
     public int countGoodSubstrings(String s) {
         int c=0;
