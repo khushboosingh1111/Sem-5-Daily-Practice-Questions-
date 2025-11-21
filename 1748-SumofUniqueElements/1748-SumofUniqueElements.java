@@ -1,17 +1,18 @@
-// Last updated: 11/21/2025, 2:33:46 PM
+// Last updated: 11/21/2025, 2:50:00 PM
 class Solution {
-    public int sumOfUnique(int[] nums) {
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i:nums){
-            map.put(i,map.getOrDefault(i,0)+1);
+    public boolean areOccurrencesEqual(String s) {
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(char ch:s.toCharArray()){
+            map.put(ch,map.getOrDefault(ch,0)+1);
         }
-        int sum=0;
-        for(int i:nums){
-            if(map.get(i)<=1){
-                sum+=i;
+        int f=map.get(s.charAt(0));
+        for(char ch:s.toCharArray()){
+            if(f!=(int)map.get(ch)){
+                return false; 
             }
+
         }
-        return sum;
+        return true;
         
     }
 }
