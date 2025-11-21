@@ -1,18 +1,12 @@
-// Last updated: 11/21/2025, 2:50:36 PM
+// Last updated: 11/21/2025, 2:56:09 PM
 class Solution {
-    public boolean areOccurrencesEqual(String s) {
-        HashMap<Character,Integer> map=new HashMap<>();
-        for(char ch:s.toCharArray()){
-            map.put(ch,map.getOrDefault(ch,0)+1);
+    public int countGoodSubstrings(String s) {
+        int c=0;
+      for(int i=2;i<s.length();i++){
+        if(s.charAt(i)!=s.charAt(i-1) && s.charAt(i)!=s.charAt(i-2) && s.charAt(i-1)!=s.charAt(i-2)){
+            c++;
         }
-        int f=map.get(s.charAt(0));
-        for(char ch:s.toCharArray()){
-            if(f!=(int)map.get(ch)){
-                return false; 
-            }
-
-        }
-        return true;
-        
+      }  
+      return c;
     }
 }
