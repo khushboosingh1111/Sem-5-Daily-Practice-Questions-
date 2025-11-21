@@ -1,4 +1,4 @@
-// Last updated: 11/21/2025, 3:39:14 PM
+// Last updated: 11/21/2025, 3:39:25 PM
 class Solution {
     public int[] occurrencesOfElement(int[] nums, int[] queries, int x) {
        HashMap<Integer,Integer> map=new HashMap<>();
