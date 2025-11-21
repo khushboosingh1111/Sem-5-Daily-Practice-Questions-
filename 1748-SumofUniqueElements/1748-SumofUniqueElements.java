@@ -1,12 +1,10 @@
-// Last updated: 11/21/2025, 2:56:19 PM
+// Last updated: 11/21/2025, 3:05:36 PM
 class Solution {
-    public int countGoodSubstrings(String s) {
-        int c=0;
-      for(int i=2;i<s.length();i++){
-        if(s.charAt(i)!=s.charAt(i-1) && s.charAt(i)!=s.charAt(i-2) && s.charAt(i-1)!=s.charAt(i-2)){
-            c++;
+    public int distributeCandies(int[] candyType) {
+        HashSet<Integer> set=new HashSet<>();
+        for(int i:candyType){
+            set.add(i);
         }
-      }  
-      return c;
+        return Math.min(set.size(),candyType.length/2);
     }
 }
