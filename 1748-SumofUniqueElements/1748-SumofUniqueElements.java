@@ -1,4 +1,4 @@
-// Last updated: 11/21/2025, 2:50:18 PM
+// Last updated: 11/21/2025, 2:50:27 PM
 class Solution {
     public boolean areOccurrencesEqual(String s) {
         HashMap<Character,Integer> map=new HashMap<>();
