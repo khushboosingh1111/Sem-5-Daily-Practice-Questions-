@@ -1,4 +1,4 @@
-// Last updated: 1/3/2026, 1:06:15 PM
+// Last updated: 1/3/2026, 1:06:22 PM
 class Solution {
     public int countNegatives(int[][] nums) {
 
