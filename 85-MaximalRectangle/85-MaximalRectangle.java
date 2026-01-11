@@ -1,4 +1,4 @@
-// Last updated: 1/11/2026, 7:40:58 PM
+// Last updated: 1/11/2026, 7:41:05 PM
 1class Solution {
 2    public int maximalRectangle(char[][] matrix) {
 3        int[] arr=new int[matrix[0].length];
