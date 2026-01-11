@@ -1,32 +1,30 @@
-// Last updated: 1/12/2026, 12:06:52 AM
-1class Solution {
-2    public int removeBoxes(int[] boxes) {
-3        if(boxes.length==0){
-4            return 0;
-5        }
-6        int size=boxes.length;
-7        int[][][] dp=new int[size][size][size];
-8        return get(dp,boxes,0,size-1,0);
-9    }
-10    private int get(int[][][] dp,int[] boxes,int left,int right,int streak){
-11        if(left>right){
-12            return 0;
-13        }
-14        else if(left==right){
-15            return (streak+1)*(streak+1);
-16        }
-17        else if(dp[left][right][streak]!=0){
-18            return dp[left][right][streak];
-19        }
-20        else{
-21            int max=get(dp,boxes,left+1,right,0)+(streak+1)*(streak+1);
-22            for(int i=left+1;i<=right;i++){
-23                if(boxes[left]==boxes[i]){
-24                    max=Math.max(max,get(dp,boxes,left+1,i-1,0)+get(dp,boxes,i,right,streak+1));
-25                }
-26            }
-27            dp[left][right][streak]=max;
-28            return max;
-29        }
-30    }
-31}
+// Last updated: 1/12/2026, 12:13:20 AM
+class Solution {
+    public int removeBoxes(int[] boxes) {
+        int n = boxes.length;
+        int[][][] memo = new int[n][n][n];
+        return removeBoxesSub(boxes, 0, n - 1, 0, memo);
+    }
+
+    private int removeBoxesSub(int[] boxes, int i, int j, int k, int[][][] memo) {
+        if (i > j) return 0;
+        if (memo[i][j][k] > 0) return memo[i][j][k];
+    
+        int tmpi = i, tmpk = k;
+        while (i + 1 <= j && boxes[i + 1] == boxes[i]) {
+            i++;
+            k++;
+        }
+        
+        int res = (k + 1) * (k + 1) + removeBoxesSub(boxes, i + 1, j, 0, memo);
+
+        for (int m = i + 1; m <= j; m++) {
+            if (boxes[i] == boxes[m]) {
+                res = Math.max(res, removeBoxesSub(boxes, i + 1, m - 1, 0, memo) + removeBoxesSub(boxes, m, j, k + 1, memo));
+            }
+        }
+
+        memo[tmpi][j][tmpk] = res;
+        return res;
+    }
+}
