@@ -1,4 +1,4 @@
-// Last updated: 1/12/2026, 12:06:43 AM
+// Last updated: 1/12/2026, 12:06:52 AM
 1class Solution {
 2    public int removeBoxes(int[] boxes) {
 3        if(boxes.length==0){
