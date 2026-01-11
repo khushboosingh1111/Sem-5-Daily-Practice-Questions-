@@ -1,7 +1,7 @@
-// Last updated: 1/12/2026, 12:25:02 AM
+// Last updated: 1/12/2026, 12:25:13 AM
 1class Solution {
 2    public int uniquePaths(int m, int n) {
-3        int N = m + n - 2;
+3    int N = m + n - 2;
 4    int k = Math.min(m - 1, n - 1);
 5
 6    long res = 1;
