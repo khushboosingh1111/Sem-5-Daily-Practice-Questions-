@@ -1,16 +1,19 @@
-// Last updated: 1/12/2026, 12:48:34 AM
+// Last updated: 1/12/2026, 12:58:06 AM
 1class Solution {
 2        public int minimumCoins(int[] A) {
-3        int n = A.length, dp[] = new int[n + 1];
-4        Deque<Integer> q = new ArrayDeque<>();
-5        for (int i = 0; i < n; i++) {
-6            while (!q.isEmpty() && (q.getFirst() + 1) * 2 < i + 1)
-7                q.removeFirst();
-8            while (!q.isEmpty() && dp[q.getLast()] + A[q.getLast()] >= dp[i] + A[i])
-9                q.removeLast();
-10            q.addLast(i);
-11            dp[i + 1] = dp[q.getFirst()] + A[q.getFirst()];
-12        }
-13        return dp[n];
-14    }
-15}
+3        int n=A.length;
+4        int[] dp=new int[n+1];
+5        Deque<Integer> q=new ArrayDeque<>();
+6        for(int i=0;i<n;i++){
+7            while(!q.isEmpty() && (q.getFirst()+1)*2<i+1){
+8                q.removeFirst();
+9            }
+10            while(!q.isEmpty() && (dp[q.getLast()]+A[q.getLast()])>=dp[i]+A[i]){
+11                q.removeLast();
+12            }
+13            q.addLast(i);
+14            dp[i+1]=dp[q.getFirst()]+A[q.getFirst()];
+15        }
+16        return dp[n];
+17    }
+18}
