@@ -1,4 +1,4 @@
-// Last updated: 1/12/2026, 12:25:13 AM
+// Last updated: 1/12/2026, 12:26:14 AM
 1class Solution {
 2    public int uniquePaths(int m, int n) {
 3    int N = m + n - 2;
