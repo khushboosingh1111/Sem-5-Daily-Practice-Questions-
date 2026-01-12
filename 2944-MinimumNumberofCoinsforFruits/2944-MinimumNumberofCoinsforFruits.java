@@ -1,4 +1,4 @@
-// Last updated: 1/12/2026, 7:38:57 PM
+// Last updated: 1/12/2026, 7:39:06 PM
 1class Solution {
 2        public int minimumCoins(int[] A) {
 3        int n=A.length;
