@@ -1,13 +1,26 @@
-// Last updated: 1/12/2026, 10:17:12 PM
-1class Solution {
-2    public int minTimeToVisitAllPoints(int[][] p){                                                                                   
-3        int ans = 0;
-4        for (int i = 1; i < p.length; i++) {
-5            ans += Math.max(
-6                Math.abs(p[i][0] - p[i - 1][0]),
-7                Math.abs(p[i][1] - p[i - 1][1])
-8            );
-9        }
-10        return ans;
-11    }
-12}                                                                                                                                                     
+// Last updated: 1/12/2026, 10:17:22 PM
+class Solution {
+    public int minTimeToVisitAllPoints(int[][] points) {
+        int min = 0;
+        int[] p = points[0];
+        for (int i = 1; i < points.length; i++) {
+            int[] c = points[i];
+            min = min + min(p, c);
+            p = c;
+        }
+        return min;
+    }
+
+    public int min(int[] p1, int[] p2) {
+        int min = 0;
+        int dx = Math.abs(p2[0] - p1[0]);
+        int dy = Math.abs(p2[1] - p1[1]);
+        if (dx == dy) {
+            min = dx;
+        } else {
+            int d = Math.abs(dx - dy);
+            return d + Math.min(dx, dy);
+        }
+        return min;
+    }
+}
