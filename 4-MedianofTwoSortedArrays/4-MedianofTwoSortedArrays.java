@@ -1,4 +1,4 @@
-// Last updated: 1/13/2026, 2:31:27 PM
+// Last updated: 1/15/2026, 4:48:39 PM
 1class Solution {
 2    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 3        // Ensure nums1 is the smaller array
@@ -38,6 +38,6 @@
 37            }
 38        }
 39        
-40        throw new IllegalArgumentException("Input arrays are not sorted");
+40        return 0;
 41    }
 42}
