@@ -1,4 +1,4 @@
-// Last updated: 1/15/2026, 4:48:39 PM
+// Last updated: 1/15/2026, 4:48:55 PM
 1class Solution {
 2    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 3        // Ensure nums1 is the smaller array
