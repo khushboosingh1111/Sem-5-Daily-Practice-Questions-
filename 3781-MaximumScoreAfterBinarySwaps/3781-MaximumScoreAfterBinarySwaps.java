@@ -1,4 +1,4 @@
-// Last updated: 1/16/2026, 8:33:04 PM
+// Last updated: 1/16/2026, 8:33:13 PM
 1class Solution {
 2    public long maximumScore(int[] nums, String s) {
 3        //1 ko peeche left m move kr skte h
