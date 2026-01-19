@@ -1,4 +1,4 @@
-// Last updated: 1/19/2026, 10:31:53 PM
+// Last updated: 1/19/2026, 10:32:59 PM
 1class Solution {
 2    public int sumSubarrayMins(int[] arr) {
 3        Stack<Integer> st=new Stack<>();
@@ -24,7 +24,7 @@
 23        for(int i=0;i<n;i++){
 24            int left=i-prevSmaller[i];
 25            int right=nextSmaller[i]-i;
-26            sum = (sum + arr[i] * left % mod * right % mod) % mod;
+26            sum=(sum+left%mod*right%mod*arr[i])%mod;
 27            
 28        }
 29        return (int)sum;
