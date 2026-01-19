@@ -1,4 +1,4 @@
-// Last updated: 1/19/2026, 10:04:02 PM
+// Last updated: 1/19/2026, 10:04:39 PM
 1class Solution {
 2    public int minNumberOperations(int[] target) {
 3        int ops=target[0];
