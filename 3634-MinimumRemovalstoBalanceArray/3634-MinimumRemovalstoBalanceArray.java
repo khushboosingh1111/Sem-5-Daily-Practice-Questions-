@@ -1,4 +1,4 @@
-// Last updated: 1/20/2026, 10:29:13 PM
+// Last updated: 1/20/2026, 10:29:23 PM
 1class Solution {
 2    public int minRemoval(int[] nums, int k) {
 3        if(nums.length == 1) return 0;
