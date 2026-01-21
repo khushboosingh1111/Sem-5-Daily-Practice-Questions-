@@ -1,4 +1,4 @@
-// Last updated: 1/21/2026, 10:02:50 PM
+// Last updated: 1/21/2026, 10:02:57 PM
 1class Solution {
 2
 3    public int totalSteps(int[] nums) {
