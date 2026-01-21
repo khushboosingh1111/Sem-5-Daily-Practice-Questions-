@@ -1,4 +1,4 @@
-// Last updated: 1/21/2026, 12:13:47 PM
+// Last updated: 1/21/2026, 12:13:54 PM
 1class Solution {
 2    public int getXORSum(int[] arr1, int[] arr2) {
 3       int xor1=Bitwise_XOR(arr1);
