@@ -1,33 +1,22 @@
-// Last updated: 1/24/2026, 10:51:43 PM
+// Last updated: 1/24/2026, 10:52:38 PM
 1class Solution {
 2    public int totalSteps(int[] nums) {
 3        int n = nums.length;
 4        int ans = 0;
-5
-6        Stack<Integer> valStack = new Stack<>(); //value or element
-7        Stack<Integer> stepStack = new Stack<>(); //steps or count
-8        
-9
-10        valStack.push(nums[n - 1]); //element
-11        stepStack.push(0); //count
-12
-13        
-14        for (int i = n - 2; i >= 0; i--) {
-15
-16            int count = 0;
-17
-18            while (!valStack.isEmpty() && nums[i] > valStack.peek()) {
-19                count = Math.max(count + 1, stepStack.peek());
-20                valStack.pop();
-21                stepStack.pop();
-22            }
-23
-24            ans = Math.max(ans, count);
-25            valStack.push(nums[i]);
-26            stepStack.push(count);
-27        }
-28
-29        return ans;
-30    }
-31}
-32
+5        int[] steps = new int[n];
+6        int[] stk = new int[n]; 
+7        int top = -1; 
+8
+9        for (int i = n - 1; i >= 0; i--) {
+10            int maxStep = 0;
+11            while (top >= 0 && nums[i] > nums[stk[top]]) {
+12                maxStep = Math.max(maxStep + 1, steps[stk[top]]);
+13                top--;
+14            }
+15            steps[i] = maxStep;
+16            ans = Math.max(ans, steps[i]);
+17            stk[++top] = i;
+18        }
+19        return ans;
+20    }
+21}
