@@ -1,4 +1,4 @@
-// Last updated: 1/26/2026, 10:55:39 PM
+// Last updated: 1/26/2026, 10:56:46 PM
 1class Solution {
 2    public List<String> generateParenthesis(int n) {
 3        List<String> ll=new ArrayList<>();
