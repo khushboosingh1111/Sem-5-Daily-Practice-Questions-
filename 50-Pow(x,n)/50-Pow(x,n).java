@@ -1,4 +1,4 @@
-// Last updated: 1/27/2026, 11:20:26 PM
+// Last updated: 1/28/2026, 7:55:09 PM
 1class Solution {
 2    public double myPow(double x, int n) {
 3        long N=n;          
