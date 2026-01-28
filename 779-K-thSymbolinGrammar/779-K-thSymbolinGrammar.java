@@ -1,4 +1,4 @@
-// Last updated: 1/28/2026, 9:20:53 PM
+// Last updated: 1/28/2026, 9:21:00 PM
 1class Solution {
 2    public int recursion(int n, int k) {
 3        // First row will only have one symbol '0'.
