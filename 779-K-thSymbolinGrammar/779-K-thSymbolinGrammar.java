@@ -1,24 +1,18 @@
-// Last updated: 1/29/2026, 8:22:14 AM
+// Last updated: 1/29/2026, 8:23:15 AM
 1class Solution {
-2    public int recursion(int n, int k) {
-3        // First row will only have one symbol '0'.
-4        if (n == 1) {
-5            return 0;
-6        }
-7
-8        int totalElements = (int) Math.pow(2, (n - 1));
-9        int halfElements = totalElements / 2;
-10
-11        // If the target is present in the right half, we switch to the respective left half symbol.
-12        if (k > halfElements) {
-13            return 1 - recursion(n, k - halfElements);
-14        }
-15
-16        // Otherwise, we switch to the previous row.
-17        return recursion(n - 1, k);
-18    }
-19
-20    public int kthGrammar(int n, int k) {
-21        return recursion(n, k);
-22    }
-23}
+2    public int kthGrammar(int n, int k) {
+3        return solve(n,k);
+4    }
+5    public static int solve(int n,int k){
+6        if(n==1){
+7            return 0;
+8        }
+9        int mid=(int)Math.pow(2,n-1)/2;
+10        if(k<=mid){
+11            return solve(n-1,k);
+12        }
+13        else{
+14            return 1-solve(n-1,k-mid);
+15        }
+16    }
+17}
