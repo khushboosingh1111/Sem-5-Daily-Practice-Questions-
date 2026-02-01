@@ -1,4 +1,4 @@
-// Last updated: 2/1/2026, 8:14:02 PM
+// Last updated: 2/1/2026, 8:14:29 PM
 1class Solution {
 2    public int minimumK(int[] nums) {
 3        int left=1;
