@@ -1,33 +1,25 @@
-// Last updated: 2/3/2026, 3:51:38 PM
+// Last updated: 2/3/2026, 3:55:40 PM
 1class Solution {
 2
 3    public int minLength(String s) {
-4        Stack<Character> stack = new Stack<>();
-5
-6        // Iterate over each character in the input string
-7        for (int i = 0; i < s.length(); i++) {
-8            char currentChar = s.charAt(i);
-9
-10            // If the stack is empty, simply push the current character
-11            if (stack.isEmpty()) {
-12                stack.push(currentChar);
-13                continue;
-14            }
-15
-16            // Check for "AB" pattern, remove the pair by popping from the stack
-17            if (currentChar == 'B' && stack.peek() == 'A') {
-18                stack.pop();
+4        Stack<Character> st=new Stack<>();
+5        for(int i=0;i<s.length();i++){
+6            char ch=s.charAt(i);
+7            if(st.isEmpty()){
+8                st.push(s.charAt(i));
+9                continue;
+10            }
+11            if(ch=='B' && st.peek()=='A'){
+12                st.pop();
+13            }
+14            else if(ch=='D' && st.peek()=='C'){
+15                st.pop();
+16            }
+17            else{
+18                st.push(ch);
 19            }
-20            // Check for "CD" pattern, remove the pair by popping from the stack
-21            else if (currentChar == 'D' && stack.peek() == 'C') {
-22                stack.pop();
-23            }
-24            // Otherwise, push the current character onto the stack
-25            else {
-26                stack.push(currentChar);
-27            }
-28        }
-29
-30        return stack.size();
-31    }
-32}
+20
+21        }
+22        return st.size();
+23    }
+24}
