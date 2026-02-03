@@ -1,4 +1,4 @@
-// Last updated: 2/3/2026, 11:08:37 AM
+// Last updated: 2/3/2026, 11:09:47 AM
 1class Solution {
 2    public String makeGood(String s) {
 3        Stack<Character> st=new Stack<>();
@@ -15,6 +15,5 @@
 14            str.insert(0,st.pop());
 15        }
 16        return str.toString();
-17        
-18    }
-19}
+17    }
+18}
