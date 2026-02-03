@@ -1,4 +1,4 @@
-// Last updated: 2/3/2026, 3:55:40 PM
+// Last updated: 2/3/2026, 3:55:50 PM
 1class Solution {
 2
 3    public int minLength(String s) {
