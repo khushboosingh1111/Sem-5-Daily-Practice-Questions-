@@ -1,4 +1,4 @@
-// Last updated: 2/5/2026, 12:12:52 PM
+// Last updated: 2/5/2026, 12:13:00 PM
 1class Solution {
 2    public String replaceWords(List<String> dictionary, String sentence) {
 3       Trie t=new Trie();
