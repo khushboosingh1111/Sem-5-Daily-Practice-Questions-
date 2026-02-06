@@ -1,17 +1,14 @@
-// Last updated: 2/6/2026, 12:23:53 PM
+// Last updated: 2/6/2026, 12:35:18 PM
 1class Solution {
 2    public long maximumTripletValue(int[] nums) {
-3       return findTriplet(nums); 
-4    }
-5    public static long findTriplet(int[]arr) {
-6		long maxTriplet = 0;
-7		long dif = 0;
-8		long leftMax = 0;
-9		for (int i = 0; i < arr.length; i++) {
-10			maxTriplet=Math.max(maxTriplet, dif*arr[i]);
-11			dif = Math.max(dif, leftMax-arr[i]);
-12			leftMax = Math.max(leftMax, arr[i]);
-13		}
-14		return maxTriplet;
-15	}
-16}
+3        long maxTriplet=0;
+4        long diff=0;
+5        int leftmax=0;
+6        for(int i=0;i<nums.length;i++){
+7            maxTriplet=Math.max(maxTriplet,diff*nums[i]);
+8            diff=Math.max(diff,leftmax-nums[i]);
+9            leftmax=Math.max(leftmax,nums[i]);
+10        }
+11        return maxTriplet;
+12    }
+13}
