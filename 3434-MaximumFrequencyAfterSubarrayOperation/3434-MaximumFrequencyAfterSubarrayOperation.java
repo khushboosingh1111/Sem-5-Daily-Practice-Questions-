@@ -1,4 +1,4 @@
-// Last updated: 2/6/2026, 12:43:55 PM
+// Last updated: 2/6/2026, 12:47:41 PM
 1public class Solution {
 2    public int maxFrequency(int[] nums, int k) {
 3        int orig = 0;
