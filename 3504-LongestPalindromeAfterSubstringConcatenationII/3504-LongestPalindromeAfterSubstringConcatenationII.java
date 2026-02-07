@@ -1,4 +1,4 @@
-// Last updated: 2/6/2026, 1:06:42 PM
+// Last updated: 2/7/2026, 11:18:07 PM
 1class Solution {
 2    public int longestPalindrome(String s, String t) {
 3        t = new StringBuilder(t).reverse().toString(); 
