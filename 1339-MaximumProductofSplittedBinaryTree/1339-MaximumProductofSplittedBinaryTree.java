@@ -1,47 +1,54 @@
-// Last updated: 2/9/2026, 12:04:21 PM
-1/**
-2 * Definition for a binary tree node.
-3 * public class TreeNode {
-4 *     int val;
-5 *     TreeNode left;
-6 *     TreeNode right;
-7 *     TreeNode() {}
-8 *     TreeNode(int val) { this.val = val; }
-9 *     TreeNode(int val, TreeNode left, TreeNode right) {
-10 *         this.val = val;
-11 *         this.left = left;
-12 *         this.right = right;
-13 *     }
-14 * }
-15 */
-16class Solution {
-17    long mod=1000000007;
-18    long ans=0;
-19    private long dfs(TreeNode root){
-20        if(root==null){
-21            return 0;
-22        }
-23        root.val+=dfs(root.left)+dfs(root.right);
-24        return root.val;
-25    }
-26    public int maxProduct(TreeNode root) {
-27        long total=dfs(root);
-28        Queue<TreeNode> pq=new LinkedList<>();
-29        pq.add(root);
-30        while(!pq.isEmpty()){
-31            TreeNode nn=pq.poll();
-32            if(nn==null){
-33                continue;
-34            }
-35            long currAns=nn.val*(total-nn.val);
-36            ans=Math.max(ans,currAns); 
-37            if(nn.left!=null){
-38                pq.add(nn.left);
-39            }
-40            if(nn.right!=null){
-41                pq.add(nn.right);
-42            }           
-43        }
-44        return (int)(ans%mod);
-45    }
-46}
+// Last updated: 2/9/2026, 12:04:29 PM
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+ /**
+ 
+    Solution 1: 
+        Traverse the tree using DFS, as we come up the level, we calculate left subtree sum and right subtree sum. 
+        Calculate the max between  ( (left + curr) * (right) ) vs ((right+curr) * (left))
+        return the modulo
+  */
+class Solution {
+    long maxValue = 0;
+    long totalSum = 0;
+    public int maxProduct(TreeNode root) {
+        totalSum = totalSum(root);
+        traverse(root, totalSum);
+
+        return (int)(maxValue % 1000000007);
+    }
+
+    public long totalSum(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+
+        return totalSum(root.left) + root.val + totalSum(root.right);
+    }
+
+    public long traverse(TreeNode root, long total){
+        if(root == null){
+            return 0;
+        }
+
+        long subTotal = traverse(root.left, total) + traverse(root.right, total) + root.val;
+
+        long prod = (long)subTotal * (total - subTotal);
+        this.maxValue = Math.max(maxValue, prod);
+        return subTotal;
+    }
+}
