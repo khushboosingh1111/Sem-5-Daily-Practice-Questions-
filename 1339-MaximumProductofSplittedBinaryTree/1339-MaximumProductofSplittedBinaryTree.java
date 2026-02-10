@@ -1,4 +1,4 @@
-// Last updated: 2/9/2026, 11:24:50 PM
+// Last updated: 2/10/2026, 10:50:01 AM
 1/**
 2 * Definition for a binary tree node.
 3 * public class TreeNode {
@@ -15,22 +15,27 @@
 14 * }
 15 */
 16class Solution {
-17    static long total;
-18    static long maxAns;
-19    public int maxProduct(TreeNode root) {
-20        maxAns = 0;
-21        total = findSum(root);
-22        solve(root);
-23        return (int)(maxAns%1000000007);
-24    }
-25    public long findSum(TreeNode root){
-26        if(root==null)return 0;
-27        return (long)root.val+findSum(root.left)+findSum(root.right);
-28    }
-29    public long solve(TreeNode root){
-30        if(root==null) return 0;
-31        long curr = root.val+solve(root.left)+solve(root.right);
-32        maxAns = Math.max(maxAns, curr*(total-curr));
-33        return curr;
-34}
-35}
+17    static long ans;
+18    static long max;
+19    static long mod=1000000007;
+20    public int maxProduct(TreeNode root) {
+21        max=0;
+22        ans=totalsum(root);
+23        solve(root);
+24        return (int)(max%mod);
+25    }
+26    public long totalsum(TreeNode root){
+27        if(root==null){
+28            return 0;
+29        }
+30        return (long)root.val+totalsum(root.left)+totalsum(root.right);
+31    }
+32    public long solve(TreeNode root){
+33        if(root==null){
+34            return 0;
+35        }
+36        long curr=root.val+solve(root.left)+solve(root.right);
+37        max=Math.max(max,curr*(ans-curr));
+38        return curr;
+39    }
+40}
