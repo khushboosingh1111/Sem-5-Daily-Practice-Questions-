@@ -1,77 +1,79 @@
-// Last updated: 2/11/2026, 12:29:43 PM
+// Last updated: 2/11/2026, 12:45:51 PM
 1class Solution {
-2    static class Trie {
-3        class Node {
-4            Node zero;
-5            Node one;
-6        }
-7        private Node root = new Node();
-8        public void add(int val) {
-9            Node curr = root;
-10
-11            for (int i = 31; i >= 0; i--) {
-12                int bit = val & (1 << i);
-13
-14                if (bit == 0) {
-15                    if (curr.zero != null) {
-16                        curr = curr.zero;
-17                    } else {
-18                        Node nn = new Node();
-19                        curr.zero = nn;
-20                        curr = nn;
-21                    }
-22                } else {
-23                    if (curr.one != null) {
-24                        curr = curr.one;
-25                    } else {
-26                        Node nn = new Node();
-27                        curr.one = nn;
-28                        curr = nn;
-29                    }
-30                }
-31            }
-32        }
-33
-34        public int maxXor(int val) {
-35            Node curr = root;
-36            int ans = 0;
-37
-38            for (int i = 31; i >= 0; i--) {
-39                int bit = val & (1 << i);
-40
-41                if (bit == 0) {
-42                    if (curr.one != null) {
-43                        ans = ans | (1 << i);
-44                        curr = curr.one;
-45                    } else {
-46                        curr = curr.zero;
-47                    }
-48                } else {
-49                    if (curr.zero != null) {
-50                        ans = ans | (1 << i);
-51                        curr = curr.zero;
-52                    } else {
-53                        curr = curr.one;
-54                    }
-55                }
-56            }
-57            return ans;
-58        }
-59    }
-60
-61    public int findMaximumXOR(int[] nums) {
-62
-63        Trie t = new Trie();
-64        int max = 0;
-65
-66        t.add(nums[0]);
-67
-68        for (int i = 1; i < nums.length; i++) {
-69            max = Math.max(max, t.maxXor(nums[i]));
-70            t.add(nums[i]);
-71        }
-72
-73        return max;
-74    }
-75}
-76
+2    public int findMaximumXOR(int[] arr) {
+3        Trie t=new Trie();
+4		for(int x:arr) {
+5			t.add(x);
+6		}
+7		int ans=0;
+8		for(int x:arr) {
+9			ans=Math.max(t.getMaxXor(x), ans);
+10		}
+11		return ans;
+12    }
+13    static class Trie{
+14		class Node{
+15			Node zero;
+16			Node one;
+17		}
+18		private Node root=new Node();
+19		public void add(int val) {
+20			Node curr=root;
+21			for(int i=31;i>=0;i--) { //ulta loop kyuki hume msb ko check krna h vo zero hai ya one toh starting bit check krenge 32 bit k number m
+22				int bit=val&(1<<i); //i time &(i.e and) krke huma first bit value nikalnege
+23				if(bit==0) { //agr bit 0 hai toh 0 tha 
+24					//agr 0 hai toh vha pocha de nhi hai toh new bna de
+25					if(curr.zero!=null) {
+26						curr=curr.zero;
+27					}
+28					else { //agr one huya toh udhr i time and krke shift krke msb bit 1 tha
+29						Node nn=new Node();
+30						curr.zero=nn;
+31						curr=nn;
+32					}
+33				}
+34				else {
+35					if(curr.one!=null) {
+36						curr=curr.one;
+37					}
+38					else {
+39						Node nn=new Node();
+40						curr.one=nn;
+41						curr=nn;
+42					}
+43					
+44				}
+45				
+46			}
+47		}
+48		public int getMaxXor(int x) {
+49			int ans=0;
+50			Node curr=root;
+51			for(int i=31;i>=0;i--) {
+52				int bit=x&(1<<i);
+53				if(bit==0) {
+54					if(curr.one!=null) {
+55						ans=ans | (1<<i);
+56						curr=curr.one;
+57					}
+58					else {
+59						curr=curr.zero;
+60					}
+61				}
+62				else {
+63					if(curr.zero!=null) {
+64						ans=ans | (1<<i);
+65						curr=curr.zero;
+66					}
+67					else {
+68						curr=curr.one;
+69					}
+70					
+71				}
+72			}
+73			return ans;
+74		}
+75	}
+76}
+77
+78
