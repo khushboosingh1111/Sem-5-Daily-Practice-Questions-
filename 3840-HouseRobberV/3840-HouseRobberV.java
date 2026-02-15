@@ -1,4 +1,4 @@
-// Last updated: 2/15/2026, 9:24:25 PM
+// Last updated: 2/15/2026, 9:24:31 PM
 1class Solution {
 2    public long rob(int[] nums, int[] colors) {
 3        int[] arr=nums;
