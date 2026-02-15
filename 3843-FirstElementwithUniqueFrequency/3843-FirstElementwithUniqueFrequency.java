@@ -1,19 +1,28 @@
-// Last updated: 2/16/2026, 12:08:53 AM
-1class Solution {
-2    public int firstUniqueFreq(int[] A) {
-3        Map<Integer, Integer> c1 = new HashMap<>();
-4        for (int a : A){
-5            c1.put(a, c1.getOrDefault(a, 0) + 1);
-6        }
-7        Map<Integer, Integer> c2 = new HashMap<>();
-8        for (int f : c1.values()){
-9            c2.put(f, c2.getOrDefault(f, 0) + 1);
-10        }
-11        for (int a : A){
-12            if (c2.get(c1.get(a)) == 1){
-13                return a;
-14            }
-15        }
-16        return -1;
-17    }
-18}
+// Last updated: 2/16/2026, 12:09:16 AM
+class Solution {
+    public int firstUniqueFreq(int[] nums) {
+        int[] input=nums;
+        int max=0;
+        for(int n:input){
+            max=Math.max(max,n);
+        }
+        int[] hass=new int[max+1];
+        for(int n:input){
+            hass[n]++;
+        }
+        int[] count=new int[input.length+1];
+        boolean[] checked=new boolean[max+1];
+        for(int n:input){
+            if(!checked[n]){
+                count[hass[n]]++;
+                checked[n]=true;
+            }
+        }
+        for(int n:input){
+            if(count[hass[n]]==1){
+                return n;
+            }
+        }
+        return -1;
+    }
+}
