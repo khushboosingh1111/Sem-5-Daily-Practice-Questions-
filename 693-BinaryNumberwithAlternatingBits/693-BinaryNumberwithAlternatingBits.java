@@ -1,4 +1,4 @@
-// Last updated: 2/18/2026, 9:24:31 PM
+// Last updated: 2/18/2026, 9:25:29 PM
 1class Solution {
 2    public boolean hasAlternatingBits(int n) {
 3        int cur = n % 2;
