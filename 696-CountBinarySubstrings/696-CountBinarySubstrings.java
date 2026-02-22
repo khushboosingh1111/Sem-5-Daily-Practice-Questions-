@@ -1,4 +1,4 @@
-// Last updated: 2/20/2026, 9:12:09 PM
+// Last updated: 2/22/2026, 4:12:59 PM
 1class Solution {
 2    public int countBinarySubstrings(String s) {
 3        int ans = 0, prev = 0, cur = 1;
