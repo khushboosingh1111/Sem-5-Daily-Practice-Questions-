@@ -1,19 +1,28 @@
-// Last updated: 2/24/2026, 12:46:13 AM
-1class Solution {
-2    public boolean hasAllCodes(String s, int k) {
-3        HashSet<String> set=new HashSet<>();
-4        int n=s.length();
-5        int c=1<<k; //pow(2,k)
-6        for(int i=k;i<=n;i++){
-7            String sub=s.substring(i-k,i);
-8            if(!set.contains(sub)){
-9                set.add(sub);
-10                c--;
-11            }
-12            if(c==0){
-13                return true;
-14            }
-15        }
-16        return false;
-17    }
-18}
+// Last updated: 2/24/2026, 12:46:55 AM
+class Solution {
+    public boolean hasAllCodes(String s, int k) {
+        int need = 1 <<k;
+        int n = s.length();
+
+        if(n<k || n-k+1 < need)
+        return false;
+
+        boolean[] seen = new boolean[need];
+        int hash = 0;
+        int allOnes = need -1;
+        int count = 0;
+
+        for(int i=0; i<n; i++) {
+            hash = ((hash << 1) & allOnes) | (s.charAt(i) - '0');
+             if(i >= k-1){
+                if(!seen[hash]){
+                    seen[hash]=true;
+                    count++;
+                    if(count == need)
+                    return true;
+                }
+             }
+        }
+        return false;
+    }
+}
