@@ -1,4 +1,4 @@
-// Last updated: 2/26/2026, 12:08:28 PM
+// Last updated: 2/26/2026, 12:09:16 PM
 1import java.math.BigInteger;
 2class Solution {
 3    public int numSteps(String s) {
