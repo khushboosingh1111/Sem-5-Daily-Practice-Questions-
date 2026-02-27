@@ -1,30 +1,23 @@
-// Last updated: 2/27/2026, 10:05:37 PM
+// Last updated: 2/27/2026, 10:07:41 PM
 1class Solution {
 2    public int countPrimes(int n) {
-3        if(n<=2){
-4            return 0;
-5        }
-6        return PrimeSieve(n);
-7        
-8    }
-9    public static int PrimeSieve(int n) {
-10		int [] ans=new int[n];
-11		ans[0]=ans[1]=1;
-12		for(int i=2;i*i<=ans.length;i++) {
-13			if(ans[i]==0) { //i prime hai uske multiple ki jgh 1 rkh denge
-14				for(int j=2;i*j<ans.length;j++) {
-15					ans[i*j]=1;
-16				}
-17				
-18			}
-19		}
-20		int c=0;
-21		for(int i=2;i<ans.length;i++) {
-22			if(ans[i]==0) {
-23				c++;
-24			}
-25		}
-26		return c;
-27	}
-28
-29}
+3        if (n == 0) return 0;
+4        boolean[] isPrime = new boolean[n];
+5        Arrays.fill(isPrime, true);
+6        int count = 0;
+7        isPrime[0] = false;
+8        if (n > 1) isPrime[1] = false;
+9        for (int i = 0; i < n; i++) {
+10            if (isPrime[i]) {
+11                count++;
+12                int j = i * 2;
+13                while (j < n) {
+14                    isPrime[j] = false;
+15                    j = j + i;
+16                }
+17            }
+18        }
+19        
+20        return count;
+21    }
+22}
