@@ -1,4 +1,4 @@
-// Last updated: 2/28/2026, 10:09:53 PM
+// Last updated: 2/28/2026, 10:10:10 PM
 1class Solution {
 2    public int countPrimes(int n) {
 3        if (n == 0) return 0;
