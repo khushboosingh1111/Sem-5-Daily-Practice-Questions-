@@ -1,4 +1,4 @@
-// Last updated: 3/3/2026, 10:07:08 PM
+// Last updated: 3/3/2026, 11:00:03 PM
 1class Solution {
 2
 3    public char findKthBit(int n, int k) {
