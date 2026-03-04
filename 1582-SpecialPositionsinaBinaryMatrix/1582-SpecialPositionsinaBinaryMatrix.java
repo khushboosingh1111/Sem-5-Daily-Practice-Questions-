@@ -1,37 +1,36 @@
-// Last updated: 3/4/2026, 8:28:49 PM
-1class Solution {
-2    public int numSpecial(int[][] mat) {
-3        int ans = 0;
-4        int m = mat.length;
-5        int n = mat[0].length;
-6        
-7        for (int row = 0; row < m; row++) {
-8            for (int col = 0; col < n; col++) {
-9                if (mat[row][col] == 0) {
-10                    continue;
-11                }
-12                
-13                boolean good = true;
-14                for (int r = 0; r < m; r++) {
-15                    if (r != row && mat[r][col] == 1) {
-16                        good = false;
-17                        break;
-18                    }
-19                }
-20                
-21                for (int c = 0; c < n; c++) {
-22                    if (c != col && mat[row][c] == 1) {
-23                        good = false;
-24                        break;
-25                    }
-26                }
-27                
-28                if (good) {
-29                    ans++;
-30                }
-31            }
-32        }
-33        
-34        return ans;
-35    }
-36}
+// Last updated: 3/4/2026, 8:34:12 PM
+class Solution {
+    public int numSpecial(int[][] mat) {
+
+        int specials = 0;
+
+        for (int i = 0; i < mat.length; i++) {
+            int index = checkRow(mat, i);
+            if (index >= 0 && checkColumn(mat, i, index))
+                specials++;
+        }
+
+        return specials;
+    }
+
+    private int checkRow(int[][] mat, int i) {
+        int index = -1;
+        for (int j = 0; j < mat[0].length; j++) {
+            if (mat[i][j] == 1) {
+                if (index >= 0)
+                    return -1;
+                else
+                    index = j;
+            }
+        }
+        return index;
+    }
+
+    private boolean checkColumn(int[][] mat, int i, int index) {
+        for (int j = 0; j < mat.length; j++) {
+            if (mat[j][index] == 1 && j != i)
+                return false;
+        }
+        return true;
+    }
+}
