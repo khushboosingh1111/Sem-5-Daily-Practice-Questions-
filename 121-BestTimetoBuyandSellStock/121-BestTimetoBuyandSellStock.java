@@ -1,16 +1,12 @@
-// Last updated: 1/13/2026, 11:07:25 AM
+// Last updated: 3/6/2026, 10:28:39 PM
 1class Solution {
 2    public int maxProfit(int[] prices) {
-3        int max=0;
+3        int ans=0;
 4        int min=Integer.MAX_VALUE;
-5        for(int i=0;i<prices.length;i++){
-6            if(prices[i]<=min){
-7                min=prices[i];
-8            }
-9            else{
-10                max=Math.max(max,prices[i]-min);
-11            }
-12        }
-13      return max;  
-14    }
-15}
+5        for(int p:prices){
+6            ans=Math.max(ans,p-min);
+7            min=Math.min(min,p);
+8        }
+9      return ans;  
+10    }
+11}
