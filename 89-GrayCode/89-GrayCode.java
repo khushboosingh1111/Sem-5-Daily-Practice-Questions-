@@ -1,4 +1,4 @@
-// Last updated: 3/16/2026, 4:13:36 PM
+// Last updated: 3/16/2026, 4:13:42 PM
 1class Solution {
 2    public List<Integer> grayCode(int n) {
 3        int size = 1 << n;  // 2^n
