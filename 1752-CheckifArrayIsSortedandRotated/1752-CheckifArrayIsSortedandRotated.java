@@ -1,4 +1,4 @@
-// Last updated: 3/17/2026, 12:04:06 PM
+// Last updated: 3/17/2026, 12:04:17 PM
 1class Solution {
 2    public boolean check(int[] nums) {
 3        int n = nums.length;
