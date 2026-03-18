@@ -1,4 +1,4 @@
-// Last updated: 3/17/2026, 12:32:26 PM
+// Last updated: 3/18/2026, 9:54:41 PM
 1class Solution {
 2    public void rotate(int[] nums, int k) {
 3        k=k%nums.length;
