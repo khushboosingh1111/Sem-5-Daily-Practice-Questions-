@@ -1,4 +1,4 @@
-// Last updated: 3/20/2026, 10:30:46 PM
+// Last updated: 3/20/2026, 10:31:14 PM
 class Solution {
     public int getmn(int[] arr){
         Arrays.sort(arr);
