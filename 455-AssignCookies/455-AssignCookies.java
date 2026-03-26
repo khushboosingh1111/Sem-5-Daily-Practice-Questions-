@@ -1,4 +1,4 @@
-// Last updated: 3/26/2026, 9:44:44 PM
+// Last updated: 3/26/2026, 9:44:53 PM
 1import java.util.Arrays;
 2class Solution {
 3    public int findContentChildren(int[] g, int[] s) {
