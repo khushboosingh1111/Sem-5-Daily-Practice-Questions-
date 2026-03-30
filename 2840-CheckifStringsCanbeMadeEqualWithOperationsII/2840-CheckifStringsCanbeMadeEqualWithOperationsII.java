@@ -1,4 +1,4 @@
-// Last updated: 3/30/2026, 8:56:30 PM
+// Last updated: 3/30/2026, 8:56:37 PM
 1class Solution {
 2    public boolean checkStrings(String s1, String s2) {
 3        int  n = s1.length();
