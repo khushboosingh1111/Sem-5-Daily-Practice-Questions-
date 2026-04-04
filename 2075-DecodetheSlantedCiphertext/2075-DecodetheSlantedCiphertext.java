@@ -1,28 +1,24 @@
-// Last updated: 4/4/2026, 7:45:02 PM
+// Last updated: 4/4/2026, 8:13:48 PM
 1class Solution {
 2    public String decodeCiphertext(String encodedText, int rows) {
-3        if (rows == 1)
+3        if(rows==1){
 4            return encodedText;
-5
-6        int n = encodedText.length();
-7        int cols = n / rows;
-8
-9        StringBuilder res = new StringBuilder(n);
-10
-11        for (int c = 0; c < cols; c++) {
-12            int r = 0, j = c;
-13            while (r < rows && j < cols) {
-14                res.append(encodedText.charAt(r * cols + j));
-15                r++;
-16                j++;
-17            }
-18        }
-19
-20        int end = res.length() - 1;
-21        while (end >= 0 && res.charAt(end) == ' ') {
-22            end--;
-23        }
-24
-25        return res.substring(0, end + 1);
-26    }
-27}
+5        }
+6        int len=encodedText.length();
+7        int col=len/rows;
+8        StringBuilder sb=new StringBuilder(len);
+9        for(int i=0;i<col;i++){
+10            int r=0,j=i;
+11            while(r<rows && j<col){
+12                sb.append(encodedText.charAt(r*col+j));
+13                r++;
+14                j++;
+15            }
+16        }
+17        int end=sb.length()-1;
+18        while(end>=0 && sb.charAt(end)==' '){
+19            end--;
+20        }
+21        return sb.substring(0,end+1);
+22    }
+23}
