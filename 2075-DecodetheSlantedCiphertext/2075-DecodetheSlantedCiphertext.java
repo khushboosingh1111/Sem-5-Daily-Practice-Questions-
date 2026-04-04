@@ -1,4 +1,4 @@
-// Last updated: 4/4/2026, 7:44:07 PM
+// Last updated: 4/4/2026, 7:44:20 PM
 1class Solution {
 2    public String decodeCiphertext(String encodedText, int rows) {
 3        if (rows == 1)
