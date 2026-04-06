@@ -1,11 +1,11 @@
-// Last updated: 4/5/2026, 8:49:03 PM
-class Solution {
-    public boolean judgeCircle(String moves) {
-        int[] ch = new int[26];
-        for (char move : moves.toCharArray()){
-            ch[move - 'A']++;
-        }
-        return ch['U' - 'A'] == ch['D' - 'A'] && 
-                ch['L' - 'A'] == ch['R' - 'A'];
-    }
-}
+// Last updated: 4/6/2026, 8:10:30 PM
+1class Solution {
+2    public boolean judgeCircle(String moves) {
+3        int[] ch = new int[26];
+4        for (char move : moves.toCharArray()){
+5            ch[move - 'A']++;
+6        }
+7        return ch['U' - 'A'] == ch['D' - 'A'] && 
+8                ch['L' - 'A'] == ch['R' - 'A'];
+9    }
+10}
