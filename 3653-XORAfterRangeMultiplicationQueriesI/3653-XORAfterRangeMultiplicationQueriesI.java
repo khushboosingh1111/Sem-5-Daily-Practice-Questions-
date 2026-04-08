@@ -1,4 +1,4 @@
-// Last updated: 4/8/2026, 8:27:00 PM
+// Last updated: 4/8/2026, 8:27:50 PM
 1class Solution {
 2    private static final int MOD = 1_000_000_007;
 3    public int xorAfterQueries(int[] nums, int[][] queries) {
