@@ -1,4 +1,4 @@
-// Last updated: 4/10/2026, 2:09:01 PM
+// Last updated: 4/11/2026, 12:39:15 AM
 1class Solution {
 2    public int minimumDistance(int[] nums) {
 3        Map<Integer,List<Integer>> map=new HashMap<>();
@@ -20,7 +20,8 @@
 19                }
 20            }
 21        }
-22        return ans==Integer.MAX_VALUE ?-1:ans;
-23        
-24    }
-25}
+22         
+23        return ans==Integer.MAX_VALUE ?-1:ans;
+24        
+25    }
+26}
