@@ -1,27 +1,27 @@
-// Last updated: 4/11/2026, 12:43:06 PM
-1class Solution {
-2    public int minimumDistance(int[] nums) {
-3        HashMap<Integer,ArrayList<Integer>>map=new HashMap<>();
-4        boolean found=true;
-5        for(int i=0;i<nums.length;i++){
-6            map.putIfAbsent(nums[i],new ArrayList<>());
-7            map.get(nums[i]).add(i);
-8        }
-9        int ans=Integer.MAX_VALUE;
-10        for(int ke:map.keySet()){
-11            ArrayList<Integer> l=map.get(ke);
-12            Collections.sort(l);
-13            if(l.size()>2){
-14                for(int i=0;i<l.size()-2;i++){
-15                    int a=l.get(i);
-16                    int b=l.get(i+1);
-17                    int c=l.get(i+2);
-18                    int ans2=Math.abs(a-b)+Math.abs(b-c)+Math.abs(c-a);
-19                    ans=Math.min(ans,ans2);
-20                }
-21            }
-22        }
-23        found=false;
-24    return ans==Integer.MAX_VALUE?-1:ans;
-25    }
-26}
+// Last updated: 4/11/2026, 12:43:19 PM
+class Solution {
+    public int minimumDistance(int[] nums) {
+        HashMap<Integer,ArrayList<Integer>> map=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            ArrayList<Integer> l=map.getOrDefault(nums[i],new ArrayList<>());
+            l.add(i);
+            map.put(nums[i],l);
+        }
+        int min=Integer.MAX_VALUE;
+        for(int key:map.keySet()){
+            if(map.get(key).size()<3) continue;
+            ArrayList<Integer> temp=map.get(key);
+            int i=0;
+            int j=1;
+            int k=2;
+            while(k<temp.size()){
+                min=Math.min(min,2*(Math.max(temp.get(i),Math.max(temp.get(j),temp.get(k)))-Math.min(temp.get(i),Math.min(temp.get(j),temp.get(k)))));
+                i++;
+                j++;
+                k++;
+            }
+        }
+        return min==Integer.MAX_VALUE?-1:min;
+
+    }
+}
