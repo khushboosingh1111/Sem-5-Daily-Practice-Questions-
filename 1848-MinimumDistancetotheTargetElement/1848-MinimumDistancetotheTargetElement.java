@@ -1,12 +1,15 @@
-// Last updated: 4/13/2026, 8:43:47 PM
+// Last updated: 4/13/2026, 8:44:16 PM
 1class Solution {
 2    public int getMinDistance(int[] nums, int target, int start) {
-3        int res = nums.length;
-4        for (int i = 0; i < nums.length; i++) {
-5            if (nums[i] == target) {
-6                res = Math.min(res, Math.abs(i - start));
-7            }
-8        }
-9        return res;
-10    }
-11}
+3        int min=Integer.MAX_VALUE;
+4        for(int i=0;i<nums.length;i++){
+5            if(nums[i]==target){
+6                int k=(Math.abs(i-start));
+7            if(min>k){
+8                min=k;
+9            }
+10            }
+11        }
+12        return min;
+13    }
+14}
