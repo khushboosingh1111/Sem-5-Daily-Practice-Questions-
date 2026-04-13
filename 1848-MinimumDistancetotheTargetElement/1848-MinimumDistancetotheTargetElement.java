@@ -1,4 +1,4 @@
-// Last updated: 4/13/2026, 8:44:26 PM
+// Last updated: 4/13/2026, 8:46:43 PM
 1class Solution {
 2    public int getMinDistance(int[] nums, int target, int start) {
 3        int min=Integer.MAX_VALUE;
