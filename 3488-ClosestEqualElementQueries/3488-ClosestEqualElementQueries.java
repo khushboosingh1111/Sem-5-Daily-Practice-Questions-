@@ -1,4 +1,4 @@
-// Last updated: 4/16/2026, 11:01:43 PM
+// Last updated: 4/17/2026, 9:03:23 PM
 1class Solution {
 2    public List<Integer> solveQueries(int[] nums, int[] queries) {
 3        List<Integer> ans = new ArrayList<>();
