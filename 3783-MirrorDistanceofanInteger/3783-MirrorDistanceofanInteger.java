@@ -1,4 +1,4 @@
-// Last updated: 4/18/2026, 9:09:54 PM
+// Last updated: 4/18/2026, 9:10:02 PM
 1class Solution {
 2    public int mirrorDistance(int n) {
 3        int num=n;
