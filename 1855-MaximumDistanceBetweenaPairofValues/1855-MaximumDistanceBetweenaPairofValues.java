@@ -1,4 +1,4 @@
-// Last updated: 4/19/2026, 9:22:46 PM
+// Last updated: 4/19/2026, 9:22:56 PM
 1class Solution {
 2    public int maxDistance(int[] A, int[] B) {
 3        int i, j = 1;
