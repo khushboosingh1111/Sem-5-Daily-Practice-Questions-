@@ -1,4 +1,4 @@
-// Last updated: 4/20/2026, 9:53:22 PM
+// Last updated: 4/20/2026, 9:53:29 PM
 1class Solution {
 2    public int maxDistance(int[] colors) {
 3       int dis = 0;
