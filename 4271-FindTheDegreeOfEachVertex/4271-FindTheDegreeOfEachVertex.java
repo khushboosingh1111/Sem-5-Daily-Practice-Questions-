@@ -1,0 +1,14 @@
+// Last updated: 4/27/2026, 10:50:08 PM
+class Solution {
+    public int[] findDegrees(int[][] matrix) {
+        int arr[]=new int[matrix.length];
+        for(int i=0;i<matrix.length;i++){
+            int sum=0;
+            for(int j=0;j<matrix[i].length;j++){
+                sum=sum+matrix[i][j];
+            }
+            arr[i]=sum;
+        }
+        return arr;
+    }
+}
