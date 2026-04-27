@@ -1,4 +1,4 @@
-// Last updated: 4/27/2026, 11:43:53 PM
+// Last updated: 4/27/2026, 11:44:08 PM
 1class Solution {
 2    public List<String> twoEditWords(String[] queries, String[] dictionary) {
 3        List<String> ans=new ArrayList<>();
