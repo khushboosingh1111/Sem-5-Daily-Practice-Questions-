@@ -1,4 +1,4 @@
-// Last updated: 4/28/2026, 10:36:23 PM
+// Last updated: 4/28/2026, 10:36:42 PM
 class Solution {
     public int minOperations(int[][] grid, int x) {
         int m = grid.length, n = grid[0].length;
