@@ -1,4 +1,4 @@
-// Last updated: 4/30/2026, 9:21:00 PM
+// Last updated: 4/30/2026, 9:21:10 PM
 1class Solution {
 2    public int maxPathScore(int[][] grid, int k) {
 3        int m=grid.length;
