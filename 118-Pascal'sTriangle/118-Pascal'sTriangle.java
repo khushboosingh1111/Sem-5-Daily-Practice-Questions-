@@ -1,4 +1,4 @@
-// Last updated: 5/2/2026, 10:26:24 PM
+// Last updated: 5/2/2026, 10:26:50 PM
 1import java.util.*;
 2class Solution {
 3    public List<List<Integer>> generate(int numRows) {
