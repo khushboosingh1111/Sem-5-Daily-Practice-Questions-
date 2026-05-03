@@ -1,4 +1,4 @@
-// Last updated: 5/3/2026, 6:59:51 PM
+// Last updated: 5/3/2026, 6:59:58 PM
 1class Solution {
 2
 3    public boolean rotateString(String s, String goal) {
