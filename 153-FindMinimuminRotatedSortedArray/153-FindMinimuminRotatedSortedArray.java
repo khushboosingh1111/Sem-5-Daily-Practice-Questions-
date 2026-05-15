@@ -1,4 +1,4 @@
-// Last updated: 5/15/2026, 8:50:07 PM
+// Last updated: 5/15/2026, 8:50:37 PM
 1class Solution {
 2    public int findMin(int[] nums) {
 3        int n = nums.length - 1;
