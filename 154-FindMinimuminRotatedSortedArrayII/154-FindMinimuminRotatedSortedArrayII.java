@@ -1,12 +1,22 @@
-// Last updated: 5/16/2026, 11:54:01 PM
+// Last updated: 5/16/2026, 11:55:35 PM
 1class Solution {
 2    public int findMin(int[] nums) {
-3        int a=nums[0];
-4        for(int i=1;i<nums.length;i++){
-5            if(nums[i]<a){
-6                a=nums[i];
-7            }
-8        }
-9        return a;
-10    }
-11}
+3        int n = nums.length - 1;
+4        int last = nums[n];
+5        int left = 0, right = n;
+6
+7        while (left < n && nums[left] == last)
+8            left++;
+9
+10        while (left < right) {
+11            int mid = left + right >> 1;
+12
+13            if (nums[mid] > last)
+14                left = mid + 1;
+15            else
+16                right = mid;
+17        }
+18
+19        return nums[left];
+20    }
+21}
