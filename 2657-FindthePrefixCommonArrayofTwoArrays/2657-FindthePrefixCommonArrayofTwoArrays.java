@@ -1,4 +1,4 @@
-// Last updated: 5/20/2026, 6:14:08 PM
+// Last updated: 5/20/2026, 6:14:17 PM
 1class Solution {
 2    public int[] findThePrefixCommonArray(int[] A, int[] B) {
 3        int[] ans = new int[A.length];
