@@ -1,4 +1,4 @@
-// Last updated: 5/24/2026, 11:03:30 PM
+// Last updated: 5/24/2026, 11:03:39 PM
 1class Solution {
 2    public int longestCommonPrefix(int[] arr1, int[] arr2) {
 3        HashSet<Integer> arr1Prefixes = new HashSet<Integer>(); // Set to store all prefixes from arr1
