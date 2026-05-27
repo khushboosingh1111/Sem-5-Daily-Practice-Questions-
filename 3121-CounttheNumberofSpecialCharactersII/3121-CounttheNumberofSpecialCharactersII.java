@@ -1,29 +1,34 @@
-// Last updated: 5/27/2026, 11:07:15 PM
+// Last updated: 5/27/2026, 11:07:40 PM
 1class Solution {
-2
-3    public int numberOfSpecialChars(String word) {
-4        int[] lastLow = new int[26];
-5        int[] firstUp = new int[26];
-6        Arrays.fill(lastLow, -1);
-7        Arrays.fill(firstUp, -1);
-8        for (int i = 0; i < word.length(); i++) {
-9            char c = word.charAt(i);
-10            if (Character.isLowerCase(c)) {
-11                lastLow[c - 'a'] = i;
-12            } else {
-13                if (firstUp[c - 'A'] == -1) {
-14                    firstUp[c - 'A'] = i;
-15                }
-16            }
-17        }
-18        int ans = 0;
-19        for (int i = 0; i < 26; i++) {
-20            if (
-21                lastLow[i] != -1 && firstUp[i] != -1 && lastLow[i] < firstUp[i]
-22            ) {
-23                ans++;
-24            }
-25        }
-26        return ans;
-27    }
-28}
+2    public int numberOfSpecialChars(String word) {
+3
+4        int lowercase[]=new int[26];
+5        int uppercase[]=new int[26];
+6        Arrays.fill(lowercase,-1);
+7        Arrays.fill(uppercase,-1);
+8        int count=0;
+9        for(int i=0;i<word.length();i++)
+10        {
+11            char ch=word.charAt(i);
+12            if(ch>='a' && ch<='z')
+13            {
+14                lowercase[ch-'a']=i;
+15            }
+16            else{
+17                int index= ch-'A';
+18                if(uppercase[index]==-1)
+19                {
+20                    uppercase[index]=i;
+21                }
+22            }
+23        }  
+24        for(int i=0;i<26;i++)
+25        {
+26            if(lowercase[i]!=-1 && uppercase[i]!=-1 && lowercase[i]<uppercase[i])
+27            {
+28                count++;
+29            }
+30        }
+31        return count;
+32    }
+33}
