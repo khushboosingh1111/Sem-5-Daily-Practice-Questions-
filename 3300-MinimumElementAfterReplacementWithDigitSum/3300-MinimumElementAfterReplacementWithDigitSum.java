@@ -1,4 +1,4 @@
-// Last updated: 5/29/2026, 9:38:43 PM
+// Last updated: 5/29/2026, 9:38:53 PM
 1class Solution {
 2
 3    public int minElement(int[] nums) {
