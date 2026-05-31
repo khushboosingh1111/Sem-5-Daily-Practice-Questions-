@@ -1,4 +1,4 @@
-// Last updated: 5/31/2026, 10:09:16 PM
+// Last updated: 5/31/2026, 10:09:25 PM
 1class Solution {
 2    public boolean asteroidsDestroyed(int mass, int[] asteroids) {
 3        Arrays.sort(asteroids); // Sort by mass in ascending order
