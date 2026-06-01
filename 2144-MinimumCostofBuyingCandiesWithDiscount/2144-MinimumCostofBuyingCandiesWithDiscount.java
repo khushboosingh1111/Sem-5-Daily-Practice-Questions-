@@ -1,4 +1,4 @@
-// Last updated: 6/1/2026, 11:37:21 PM
+// Last updated: 6/1/2026, 11:37:40 PM
 1class Solution {
 2    public int minimumCost(int[] cost) {
 3        Arrays.sort(cost);
