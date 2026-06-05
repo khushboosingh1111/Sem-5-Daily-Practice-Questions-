@@ -1,4 +1,4 @@
-// Last updated: 6/5/2026, 8:38:49 PM
+// Last updated: 6/5/2026, 8:38:56 PM
 1class Solution {
 2
 3    public int totalWaviness(int num1, int num2) {
