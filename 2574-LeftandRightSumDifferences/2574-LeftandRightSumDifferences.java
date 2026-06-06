@@ -1,4 +1,4 @@
-// Last updated: 6/6/2026, 10:47:56 PM
+// Last updated: 6/7/2026, 12:08:19 AM
 1class Solution {
 2
 3    public int[] leftRightDifference(int[] nums) {
