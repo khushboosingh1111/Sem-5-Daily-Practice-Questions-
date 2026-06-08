@@ -1,4 +1,4 @@
-// Last updated: 6/8/2026, 9:06:06 PM
+// Last updated: 6/8/2026, 9:06:21 PM
 1class Solution {
 2    public int[] pivotArray(int[] nums, int pivot) {
 3        int[] res = new int[nums.length];
