@@ -1,4 +1,4 @@
-// Last updated: 6/10/2026, 11:38:33 PM
+// Last updated: 6/10/2026, 11:38:43 PM
 1class Solution {
 2    public long maxTotalValue(int[] nums, int k) {
 3        int m1 = Integer.MAX_VALUE;
