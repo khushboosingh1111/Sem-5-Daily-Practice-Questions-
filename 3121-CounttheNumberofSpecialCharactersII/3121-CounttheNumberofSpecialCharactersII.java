@@ -1,4 +1,4 @@
-// Last updated: 5/27/2026, 11:07:53 PM
+// Last updated: 6/12/2026, 9:59:37 PM
 1class Solution {
 2    public int numberOfSpecialChars(String word) {
 3
