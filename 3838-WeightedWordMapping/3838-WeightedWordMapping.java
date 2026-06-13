@@ -1,4 +1,4 @@
-// Last updated: 6/14/2026, 12:27:06 AM
+// Last updated: 6/14/2026, 12:27:09 AM
 1class Solution {
 2    public String mapWordWeights(String[] words, int[] weights) {
 3        StringBuilder ans = new StringBuilder(words.length);
