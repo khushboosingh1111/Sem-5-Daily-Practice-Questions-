@@ -1,4 +1,4 @@
-// Last updated: 6/21/2026, 11:13:25 PM
+// Last updated: 6/21/2026, 11:13:41 PM
 1class Solution {
 2    public int maxIceCream(int[] costs, int coins) {
 3
