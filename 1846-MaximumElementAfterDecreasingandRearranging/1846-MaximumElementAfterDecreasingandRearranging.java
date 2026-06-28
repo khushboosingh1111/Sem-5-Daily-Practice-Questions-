@@ -1,4 +1,4 @@
-// Last updated: 6/28/2026, 10:37:53 PM
+// Last updated: 6/28/2026, 10:38:09 PM
 1class Solution {
 2    public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
 3        Arrays.sort(arr);
