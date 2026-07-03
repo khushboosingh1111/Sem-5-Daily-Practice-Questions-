@@ -1,4 +1,4 @@
-// Last updated: 5/12/2026, 9:18:26 PM
+// Last updated: 7/3/2026, 9:05:02 PM
 1class Solution {
 2    public int lengthOfLongestSubstring(String s) {
 3        int end=s.length(),maxlen=0;
