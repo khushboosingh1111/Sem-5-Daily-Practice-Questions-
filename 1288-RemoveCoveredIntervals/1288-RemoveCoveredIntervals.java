@@ -1,4 +1,4 @@
-// Last updated: 7/6/2026, 11:24:28 PM
+// Last updated: 7/6/2026, 11:24:34 PM
 1class Solution {
 2    public int removeCoveredIntervals(int[][] intervals) {
 3        Arrays.sort(intervals, (a, b) ->
