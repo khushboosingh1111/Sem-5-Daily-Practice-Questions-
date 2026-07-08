@@ -1,37 +1,35 @@
-// Last updated: 7/8/2026, 9:03:42 PM
+// Last updated: 7/8/2026, 10:00:52 PM
 1class Solution {
-2    private static final int MOD = 1000000007;
-3    private static final int MAX_N = 100001;
-4    private static final long[] pow10 = new long[MAX_N];
-5    // static runs only once for all test cases
-6    static {
-7        pow10[0] = 1;
-8        for (int i = 1; i < MAX_N; ++i) {
-9            pow10[i] = (pow10[i - 1] * 10) % MOD;
-10        }
-11    }
-12
-13    public int[] sumAndMultiply(String s, int[][] queries) {
-14        int n = s.length();
-15        int[] sum = new int[n + 1];
-16        long[] x = new long[n + 1];
-17        int[] cnt = new int[n + 1];
-18        for (int i = 0; i < n; ++i) {
-19            int d = s.charAt(i) - '0';
-20            sum[i + 1] = sum[i] + d;
-21            x[i + 1] = d > 0 ? (x[i] * 10 + d) % MOD : x[i];
-22            cnt[i + 1] = cnt[i] + (d > 0 ? 1 : 0);
-23        }
-24        int m = queries.length;
-25        int[] res = new int[m];
-26        for (int i = 0; i < m; ++i) {
-27            int l = queries[i][0];
-28            int r = queries[i][1] + 1;
-29            int length = cnt[r] - cnt[l];
-30            long val_x = (x[r] - ((x[l] * pow10[length]) % MOD) + MOD) % MOD;
-31            long val_sum = sum[r] - sum[l];
-32            res[i] = (int) ((val_x * val_sum) % MOD);
-33        }
-34        return res;
-35    }
-36}
+2    public int[] sumAndMultiply(String s, int[][] queries) {
+3        long MOD = 1_000_000_007;
+4        int len = s.length();
+5        long[] preSum = new long[len + 1];
+6        long[] preProduct = new long[len + 1];
+7        int[] nonZeroCnt = new int[len + 1];
+8        long[] p10 = new long[len + 1];
+9        p10[0] = 1;
+10        for (int i = 0; i < len; i++) {
+11            p10[i + 1] = (p10[i] * 10) % MOD;
+12            int digit = s.charAt(i) - '0';
+13            preSum[i + 1] = preSum[i] + digit;
+14            if (digit == 0) {
+15                preProduct[i + 1] = preProduct[i];
+16                nonZeroCnt[i + 1] = nonZeroCnt[i];
+17            } else {
+18                preProduct[i + 1] = (preProduct[i] * 10 + digit) % MOD;
+19                nonZeroCnt[i + 1] = nonZeroCnt[i] + 1;
+20            }
+21        }
+22        int[] res = new int[queries.length];
+23        for (int i = 0; i < queries.length; i++) {
+24            int start = queries[i][0];
+25            int end = queries[i][1];
+26            long sum = preSum[end + 1] - preSum[start];
+27            int cnt = nonZeroCnt[end + 1] - nonZeroCnt[start];
+28            long subtract = (preProduct[start] * p10[cnt]) % MOD;
+29            long x = (preProduct[end + 1] - subtract + MOD) % MOD;
+30            res[i] = (int) ((x * sum) % MOD);
+31        }
+32        return res;
+33    }
+34}
