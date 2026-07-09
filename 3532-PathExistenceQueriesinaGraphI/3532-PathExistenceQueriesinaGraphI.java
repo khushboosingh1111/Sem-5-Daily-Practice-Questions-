@@ -1,4 +1,4 @@
-// Last updated: 7/9/2026, 11:01:37 PM
+// Last updated: 7/9/2026, 11:02:11 PM
 1class Solution {
 2    public boolean[] pathExistenceQueries(int n, int[] nums, int maxDiff, int[][] queries) {
 3        int[] cmp = new int[n];
