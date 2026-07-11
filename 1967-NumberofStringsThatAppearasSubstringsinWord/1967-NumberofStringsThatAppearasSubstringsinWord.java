@@ -1,4 +1,4 @@
-// Last updated: 7/11/2026, 7:43:14 PM
+// Last updated: 7/11/2026, 7:43:16 PM
 1class Solution {
 2    public int numOfStrings(String[] patterns, String word) {
 3        int n=patterns.length;
