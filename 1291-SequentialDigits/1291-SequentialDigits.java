@@ -1,4 +1,4 @@
-// Last updated: 7/13/2026, 9:37:43 AM
+// Last updated: 7/13/2026, 9:41:39 AM
 1class Solution {
 2    public List<Integer> sequentialDigits(int low, int high) {
 3        List<Integer> ans = new ArrayList<>();
