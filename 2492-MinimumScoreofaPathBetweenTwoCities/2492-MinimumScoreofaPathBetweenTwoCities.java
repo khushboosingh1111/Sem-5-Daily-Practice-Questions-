@@ -1,4 +1,4 @@
-// Last updated: 7/14/2026, 10:59:43 PM
+// Last updated: 7/14/2026, 11:00:16 PM
 1class Solution {
 2    int find(int[] root, int i) {
 3        if (root[i] == i)
